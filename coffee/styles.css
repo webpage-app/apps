@@ -1,41 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap');
 
 :root {
-    --font-size: 18px;
-    --heading-text: 'Crimson Text', serif;
-    --normal-text: 'Roboto', sans-serif;
-    /* --foreground-color: #422c22;
-    --background-color: #36241c;
-    --lighter-color: #f0e5e1; */
-    --foreground-color: #ffffff;
-    --background-color: #f0f0f0;
-    --lighter-color: #000000;
+  --primary-one: #8C0681;
+  --primary-two: #9C42A1;
+  --light-color: white;
+  --mid-color: #ECE1F0;
+  --dark-color: black;
+  --font-text: 'Open Sans', sans-serif;
+  --font-display: 'Rosarivo', serif;
+  --normal-text:  'Kanit', sans-serif;
+  --font-size: 20px;
 }
 html {
     font-size: var(--font-size);
 }
+body {
+  position: relative;
+  background-color: var(--light-color);
+}
 
-* {box-sizing: border-box; padding: 0; margin: 0; font-family: sans-serif}
+* {box-sizing: border-box; padding: 0; margin: 0; font-family: var(--normal-text); font-weight: 300; color: var(--contrast-color)}
+
+.choose-different {
+  color: var(--light-color);
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  margin-top: 5vw;
+  font-size: 1rem;
+  outline: 0;
+  border: 0;
+  opacity: 1;
+  transition: 0.1s ease;
+}
+.choose-different:hover {
+  color: var(--primary-two);
+  cursor: pointer;
+}
+.choose-different:active {
+  opacity: 0.8;
+}
+
 .page-color {
   position: absolute;
   width: 100%;
-  height: 100px;
-  background-color: black;
+  height: 300px;
+  background-color: var(--primary-one);
   z-index: -1;
 }
-.page-grid {
+.order-page-grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 400px));
+  grid-gap: 1rem;
   justify-content: center;
-  padding: 2.5rem 10rem;
+  padding: 1rem 1rem;
   background-color: transparent;
   z-index: 3;
 }
-.page {
+.order-page {
   width: 100%;
   height: auto;
-  background-color: white;
+  background-color: var(--light-color);
   border-radius: 1rem;
   box-shadow: 0 3px 12px rgba(0,0,0,0.16), 0 3px 12px rgba(0,0,0,0.23);
 }
@@ -45,19 +71,29 @@ html {
 .order > * {
   margin-top: 2rem;
 }
+.order.order-description {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 859px) {
+  .order.order-description {
+    height: 50vh;
+  }
+}
 .order .image-container {
   width: 100%;
-  padding-top: 150px;
-  background-color: black;
+  height: 100%;
+  background-color: transparent;
   overflow: hidden;
   position: relative;
+  border-radius: 1rem;
 }
 .order .image-container img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 110%;
+  width: 100%;
   transition: 0.1s ease;
 }
 .order .image-container img:hover {
@@ -65,43 +101,37 @@ html {
 }
 .order h1 {
   margin-top: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .order h2, .order p, .order button {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
-.order #desc, .order .input {margin-top: 0.25rem}
+.order #desc, .order .input, .order .order-exception {margin-top: 0;}
 .order p span, .order h2 span, .order label p span {float: right;}
+.order h1, .order h2 span, .order h2, .order button {
+  font-family: var(--normal-text);
+  font-weight: 400;
+}
 .order button {
   width: 100%;
-  padding: 1rem 2rem; 
-  background-color: black;
-  color: white;
+  padding: 0.75rem 2rem; 
+  background-color: var(--primary-one);
+  color: var(--light-color);
   outline: 0;
   border: 0;
   cursor: pointer;
   transition: 0.1s ease;
+  border-radius: 1rem;
 }
 .order button:hover {opacity: 0.9;}
 .order button:active {opacity: 0.8;}
 
-/* .order h2 span input {
-  padding: 0;
-  text-align: right;
-  border: 0;
-  margin: 0;
-  outline: 0;
-  background-color: #e3e3e3;
-  width: 100%;
-} */
-
-/* The container */
 .order .input {
   display: block;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -110,29 +140,14 @@ html {
 .order .input input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
 .order .input .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 1.6rem;
-  width: 1.6rem;
-  background-color: #eee;
-  border-radius: 0.5rem
-}
-.order .input:hover input ~ .checkmark {background-color: #ccc;}
-.order .input input:checked ~ .checkmark {background-color: #2196F3;}
-.order .input .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.order .input input:checked ~ .checkmark:after {display: block;}
-.order .input .checkmark:after {
+  top: 50%;
   left: 0.6rem;
-  top: 0.25rem;
-  width: 0.25rem;
-  height: 0.7rem;
-  border: solid white;
-  border-width: 0 0.2rem 0.2rem 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  height: 1.1rem;
+  width: 1.1rem;
+  background-color: var(--primary-one);
+  opacity: 0.2;
+  border-radius: 0.2rem;
+  transform: translate(-50%, -50%);
 }
+.order .input:hover input ~ .checkmark {opacity: 0.7;}
+.order .input input:checked ~ .checkmark {opacity: 1;}

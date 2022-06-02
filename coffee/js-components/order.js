@@ -51,12 +51,53 @@ const updateOrderDetails = () => {
     priceObj.innerText = PoundSterling.format(coffees[order.coffee_index].price)
     imageObj.src = coffees[order.coffee_index].image_src
 }
+
 const updateOrderPrices = () => {
     const totalPriceObj = document.querySelector('[data-coffee-order-total]')
-    totalPriceObj.innerText = 0
+    order.extras = []
+    let total = 0
+    total += coffees[order.coffee_index].price
+    const extrasObjects = document.querySelectorAll('[data-extra]') // global var
     // for each extra, if it is checked add to order to order obj and add total price
-
+    extrasObjects.forEach(extra => {
+        if (extra.checked) {
+            index = parseInt(extra.value)
+            order.extras.push(extras[index].name)
+            total += extras[index].price 
+        }
+    })
+    order.total = total
+    totalPriceObj.innerText = PoundSterling.format(total)
 }
+const setOrderDetails = () => {
+    // first stage fill out ui details
+    const detailsObj = document.querySelector('[data-confirmed-order-details]')
+    const totalObj = document.querySelector('[data-confirmed-order-total]')
+    const joinedExtrasString = order.extras.join(', ')
+    const formattedTotal = PoundSterling.format(order.total)
+    detailsObj.innerHTML = `Your order is: <b>${order.coffee}</b> with <b>${joinedExtrasString}</b> `
+    totalObj.innerHTML = `Total price: <b>${formattedTotal}</b>`
+    // second stage fill out hidden inputs
+    const hiddenCoffee = document.querySelector('[data-hidden-coffee]')
+    const hiddenExtras = document.querySelector('[data-hidden-extras]')
+    const hiddenTotal = document.querySelector('[data-hidden-total]')
+    hiddenCoffee.value = order.coffee
+    hiddenExtras.value = joinedExtrasString
+    hiddenTotal.value = formattedTotal
+}
+const inputEmail = document.querySelector('[data-email-entry]') 
+const updateID = () => {
+    let value = inputEmail.value
+    const deleteVals = ['gw', '@glow', '.ea.glasgow', '.sch.uk']
+    for (let i = 0; i < deleteVals.length; i++) {
+        if (value.search(deleteVals[i]) >= 0) {
+            value = value.replace(deleteVals[i], '')
+        }
+    }
+    const id = document.querySelector('[data-hidden-id')
+    id.value = value
+}
+inputEmail.addEventListener('input', updateID)
 
 // when first button clicked append coffee name by index to order
 const setCoffee = (coffeeIndex) => {
@@ -65,7 +106,6 @@ const setCoffee = (coffeeIndex) => {
     updateOrderDetails()
     updateOrderPrices()
 }
-
 // display coffees and extras
 const insertCoffee = (index, name, description, price, image_src) => {
     let formatted_price = '';
@@ -95,9 +135,9 @@ const insertExtras = (index, name, price) => {
           formatted_price = PoundSterling.format(price)
     }
     document.querySelector('[data-extras-container]').insertAdjacentHTML("beforeend", `
-        <label class="input">
+        <label class="input" onclick="updateOrderPrices()">
             <p>${name}<span>${formatted_price}</span></p>
-            <input type="checkbox" value="${index}">
+            <input type="checkbox" value="${index}" data-extra>
             <span class="checkmark"></span>
         </label>
     `)
@@ -107,6 +147,13 @@ for (let index = 0; index < extras.length; index++) {
     const price = extras[index].price
     insertExtras(index, name, price)   
 }
-// when extras selected append extra by index to order
-
-// everytime something changes refresh total
+const resetChecks = () => {
+    // if an extra is checked, uncheck it.
+    const extrasObjects = document.querySelectorAll('[data-extra]') // global var
+    extrasObjects.forEach(extra => {
+        if (extra.checked) {
+            extra.checked = false
+        }
+    })
+    updateOrderPrices()
+}

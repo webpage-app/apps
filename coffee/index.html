@@ -15,7 +15,8 @@
 </head>
 <body>
   <div class="page-color"></div>
-    <form data-multi-step class="multi-step-container">
+    <iframe name="redirect-prevention" id="redirect-prevention" style="display: none;"></iframe> <!-- Prevents form redirecting -->
+    <form data-multi-step class="multi-step-container" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd__l7kcBwVJGkEEWXvRwgIirTSPb_shrC9mLVgoVf9qOtCCw/formResponse" method="post" target="redirect-prevention">
       
         <div class="container active" data-step>
             <h2 class="explainer-text-no-interactivity">Choose a coffee</h2>
@@ -42,7 +43,7 @@
               </div>
 
               <h2 id="to-pay">Total To Pay: <span data-coffee-order-total>£2.50</span></h2>
-              <button type="button" data-next>Order</button>
+              <button type="button" data-next onclick="setOrderDetails()">Continue</button>
             </section>
           </main>
         
@@ -51,12 +52,16 @@
             <button type="button" class="explainer-text" data-previous>&#x2190; Change order</button>
             <main class="email-card-container">
               <section class="email-card">
-                <h3>Your order is: Americano Latte, sugar, semi skimmed milk</h3>
-                <h3>Total Price: £2.50</h3>
+                <input class="hide" data-hidden-coffee name="entry.1653205077">
+                <input class="hide" data-hidden-extras name="entry.1544369239">
+                <input class="hide" data-hidden-total name="entry.1737682409">
+                <input class="hide" data-hidden-id name="entry.837856506">
+                <h3 data-confirmed-order-details>Your order is: </h3>
+                <h3 data-confirmed-order-total>Total Price: </h3>
                 <h2>Enter email:</h2>
                 <div class="input-container">
-                  <input type="text" name="" id="">
-                  <button type="submit">Complete Order</button>
+                  <input type="email" name="entry.1122904794" required data-email-entry>
+                  <button type="submit" onclick="resetChecks()">Order</button>
                 </div>
               </section>
             </main>

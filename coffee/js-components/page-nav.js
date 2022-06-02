@@ -26,7 +26,7 @@ multiStepForm.addEventListener("click", e => {
         currentStep += incrementor
         showCurrentStep()
     }
-    console.log(currentStep)
+    // console.log(currentStep)
 })
 
 formSteps.forEach(step => {

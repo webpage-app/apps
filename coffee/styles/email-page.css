@@ -32,6 +32,9 @@
 .email-card h2 {
     margin-top: 1.5rem;
 }
+.email-card b {
+    color: var(--primary-one)
+}
 .email-card .input-container {
     display: grid;
     grid-template-columns: 70% 30%;
@@ -50,7 +53,7 @@
 }
 .email-card .input-container button {
     width: 100%;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 0.5rem;
     background-color: var(--primary-one);
     color: var(--light-color);
     outline: 0;

@@ -93,7 +93,7 @@
 
 .order #desc,
 .order .input,
-.order .order-exception {
+.order .order-exception, .order .extras-container {
     margin-top: 0;
 }
 

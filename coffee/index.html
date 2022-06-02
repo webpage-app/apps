@@ -5,40 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./order-page.css">
+    <script src="./js-components/page-nav.js" defer></script>
+    <script src="./js-components/order.js" defer></script>
+    <link rel="stylesheet" href="./styles/base-styles.css">
+    <link rel="stylesheet" href="./styles/multi-step-container-styles.css">
+    <link rel="stylesheet" href="./styles/choose-coffee-page.css">
+    <link rel="stylesheet" href="./styles/order-page.css">
+    <link rel="stylesheet" href="./styles/email-page.css">
 </head>
 <body>
   <div class="page-color"></div>
-  <button type="button" class="explainer-text" data-previous>&#x2190; Choose a different coffee</button>
-  <main class="order-page-grid">
-    <section class="order-page order order-description">
-      <h1>Americano Late</h1>
-      <p id="desc">Sweet, Fragrant</p>
-      <div class="image-container">
-        <img src="https://thumbs.dreamstime.com/b/latte-art-top-view-cup-coffee-white-background-showed-heart-cup-latte-art-top-view-cup-coffee-white-109437076.jpg">
-      </div>
-    </section>
-    <section class="order-page order order-details">
-
-      <h2 class="order-exception">Base Price: <span>£2.00</span></h2>
-      <h2>Extras:</h2>
-      <label class="input">
-        <p>Sugar <span>£0.00</span></p>
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <label class="input">
-        <p>Semi Skimmed Milk <span>£0.50</span></p>
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
+    <form data-multi-step class="multi-step-container">
       
-      <!-- <h2>Email: <span><input type="text" value="enter email"></span></h2> -->
-      <h2 id="to-pay">Total To Pay: <span>£2.50</span></h2>
-      <button>Complete order</button>
-    </section>
-  </main>
+        <div class="container active" data-step>
+            <h2 class="explainer-text-no-interactivity">Choose a coffee</h2>
+            <div class="card-container" data-coffees-container>
 
+
+            </div>
+        </div>
+        <div class="container" data-step>
+          <button type="button" class="explainer-text" data-previous>&#x2190; Choose a different coffee</button>
+          <main class="order-page-grid">
+            <section class="order-page order order-description">
+              <h1 data-coffee-order-name>Americano Late</h1>
+              <p id="desc" data-coffee-order-desc>Sweet, Fragrant</p>
+              <div class="image-container">
+                <img data-coffee-order-image src="#">
+              </div>
+            </section>
+            <section class="order-page order order-details">
+        
+              <h2 class="order-exception">Base Price: <span data-coffee-order-price>£2.00</span></h2>
+              <h2>Extras:</h2>
+              <div data-extras-container class="extras-container">
+              </div>
+
+              <h2 id="to-pay">Total To Pay: <span data-coffee-order-total>£2.50</span></h2>
+              <button type="button" data-next>Order</button>
+            </section>
+          </main>
+        
+        </div>
+        <div class="container" data-step>
+            <button type="button" class="explainer-text" data-previous>&#x2190; Change order</button>
+            <main class="email-card-container">
+              <section class="email-card">
+                <h3>Your order is: Americano Latte, sugar, semi skimmed milk</h3>
+                <h3>Total Price: £2.50</h3>
+                <h2>Enter email:</h2>
+                <div class="input-container">
+                  <input type="text" name="" id="">
+                  <button type="submit">Complete Order</button>
+                </div>
+              </section>
+            </main>
+            
+        </div>
+    </form>
 </body>
 </html>

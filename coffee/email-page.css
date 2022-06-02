@@ -1,7 +1,7 @@
 .email-card-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, calc(800px + 1rem)));
+    grid-template-columns: repeat(auto-fit, minmax(800px, calc(800px + 1rem)));
     grid-gap: 1rem;
     padding: 1rem 1rem;
     justify-content: center;
@@ -13,4 +13,37 @@
     background-color: var(--light-color);
     border-radius: 1rem;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 12px rgba(0, 0, 0, 0.23);
+    padding: 2.5rem 1.5rem;
+}
+.email-card h2, .email-card .input-container button {
+    font-family: var(--normal-text);
+    font-weight: 400;
+    font-size: 1rem;
+}
+.email-card .input-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin-top: 0.5rem;
+}
+
+.email-card .input-container input{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--contrast-color);
+    background-color: #e3e3e3;
+    outline: 0;
+    border: 0;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+.email-card .input-container button {
+    width: 100%;
+    padding: 0.75rem 2rem;
+    background-color: var(--primary-one);
+    color: var(--light-color);
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    transition: 0.1s ease;
+    border-radius: 0rem 1rem 1rem 0rem;
 }

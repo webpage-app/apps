@@ -65,8 +65,9 @@
     width: auto;
 }
 
-.card .text-container h2 {
+.card .text-container h2, .card .text-container h2 span {
     font-size: 1rem;
+    font-family: var(--normal-text);
     font-weight: 400;
 }
 

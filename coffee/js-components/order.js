@@ -45,7 +45,7 @@ const updateOrderDetails = () => {
     const nameObj = document.querySelector('[data-coffee-order-name]')
     const descriptionObj = document.querySelector('[data-coffee-order-desc]')
     const priceObj = document.querySelector('[data-coffee-order-price]')
-    const imageObj = document.querySelector('[data-coffee-order-image]')
+    const imageObj = document.querySelector('[data-coffee-order-image]') 
     nameObj.innerText = coffees[order.coffee_index].name
     descriptionObj.innerText = coffees[order.coffee_index].description
     priceObj.innerText = PoundSterling.format(coffees[order.coffee_index].price)
@@ -55,7 +55,7 @@ const updateOrderPrices = () => {
     const totalPriceObj = document.querySelector('[data-coffee-order-total]')
     totalPriceObj.innerText = 0
     // for each extra, if it is checked add to order to order obj and add total price
-    
+
 }
 
 // when first button clicked append coffee name by index to order

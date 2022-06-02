@@ -1,7 +1,11 @@
+/* smaller than 900px change button to take up more percentage */
+/* smaller than 600px make inputs stack instead of in flex-row */
+
+
 .email-card-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(800px, calc(800px + 1rem)));
+    grid-template-columns: repeat(auto-fit, minmax(370px, calc(800px + 1rem)));
     grid-gap: 1rem;
     padding: 1rem 1rem;
     justify-content: center;

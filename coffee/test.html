@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./test.css">
     <script src="./test.js" defer></script>
-    <link rel="stylesheet" href="./card.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./multi-step-container-styles.css">
+    <link rel="stylesheet" href="./choose-coffee-page.css">
+    <link rel="stylesheet" href="./order-page.css">
+    <link rel="stylesheet" href="./email-page.css">
 </head>
 <body>
+  <div class="page-color"></div>
     <form data-multi-step class="multi-step-container">
+      
         <div class="container active" data-step>
-            <h2 class="card-container-title">Choose a coffee</h2>
+            <h2 class="explainer-text-no-interactivity">Choose a coffee</h2>
             <div class="card-container">
                 <button type="button" class="card" data-next>
                     <div class="image-container"><img src='https://thumbs.dreamstime.com/b/coffee-cup-top-view-photo-foam-white-background-108898556.jpg' data-next></div>
@@ -81,15 +86,43 @@
             </div>
         </div>
         <div class="container" data-step>
-            This is step 2
-            <br>
-            <button type="button" data-previous>previous</button>
-            <button type="button" data-next>next</button>
+          <button type="button" class="explainer-text" data-previous>&#x2190; Choose a different coffee</button>
+          <main class="order-page-grid">
+            <section class="order-page order order-description">
+              <h1>Americano Late</h1>
+              <p id="desc">Sweet, Fragrant</p>
+              <div class="image-container">
+                <img src="https://thumbs.dreamstime.com/b/latte-art-top-view-cup-coffee-white-background-showed-heart-cup-latte-art-top-view-cup-coffee-white-109437076.jpg">
+              </div>
+            </section>
+            <section class="order-page order order-details">
+        
+              <h2 class="order-exception">Base Price: <span>£2.00</span></h2>
+              <h2>Extras:</h2>
+              <label class="input">
+                <p>Sugar <span>£0.00</span></p>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="input">
+                <p>Semi Skimmed Milk <span>£0.50</span></p>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <h2 id="to-pay">Total To Pay: <span>£2.50</span></h2>
+              <button type="button" data-next>Order</button>
+            </section>
+          </main>
+        
         </div>
         <div class="container" data-step>
-            This is step 3
-            <button type="button" data-previous>previous</button>
-            <button type="submit">submit</button>
+            <button type="button" class="explainer-text" data-previous>&#x2190; Change extras</button>
+            <main class="email-card-container">
+              <section class="email-card">
+                <button type="submit">submit</button>
+              </section>
+            </main>
+            
         </div>
     </form>
 </body>

@@ -5,20 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js-components/page-nav.js" defer></script>
     <script src="./js-components/order.js" defer></script>
+    <script src="./js-components/page-nav.js" defer></script>
     <link rel="stylesheet" href="./styles/base-styles.css">
     <link rel="stylesheet" href="./styles/multi-step-container-styles.css">
     <link rel="stylesheet" href="./styles/choose-coffee-page.css">
     <link rel="stylesheet" href="./styles/order-page.css">
     <link rel="stylesheet" href="./styles/email-page.css">
+    <link rel="stylesheet" href="./styles/success-page.css">
 </head>
 <body>
   <div class="page-color"></div>
     <iframe name="redirect-prevention" id="redirect-prevention" style="display: none;"></iframe> <!-- Prevents form redirecting -->
     <form data-multi-step class="multi-step-container" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd__l7kcBwVJGkEEWXvRwgIirTSPb_shrC9mLVgoVf9qOtCCw/formResponse" method="post" target="redirect-prevention">
       
-        <div class="container active" data-step>
+        <div class="container" data-step>
             <h2 class="explainer-text-no-interactivity">Choose a coffee</h2>
             <div class="card-container" data-coffees-container>
 
@@ -61,11 +62,20 @@
                 <h2>Enter email:</h2>
                 <div class="input-container">
                   <input type="email" name="entry.1122904794" required data-email-entry>
-                  <button type="submit" onclick="resetChecks()">Order</button>
+                  <button type="submit" id="submit" data-next>Order</button>
                 </div>
               </section>
             </main>
             
+        </div>
+        <div class="container active" data-step>
+          <div class="success-card-container">
+            <h2 class="explainer-text-no-interactivity">Success</h2>
+            <div class="success-card">
+              <h2>Your order has been sent!</h2>
+              <button type="button" onclick="goToBeginning()">Order another</button>
+            </div>
+          </div>
         </div>
     </form>
 </body>

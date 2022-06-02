@@ -74,8 +74,9 @@ const setOrderDetails = () => {
     const detailsObj = document.querySelector('[data-confirmed-order-details]')
     const totalObj = document.querySelector('[data-confirmed-order-total]')
     const joinedExtrasString = order.extras.join(', ')
+    const singularityCatch_JoinedExtrasString = order.extras.length == 0 ? '' : ' with <b>' + joinedExtrasString + '</b>'
     const formattedTotal = PoundSterling.format(order.total)
-    detailsObj.innerHTML = `Your order is: <b>${order.coffee}</b> with <b>${joinedExtrasString}</b> `
+    detailsObj.innerHTML = `Your order is: <b>${order.coffee}</b>${singularityCatch_JoinedExtrasString}`
     totalObj.innerHTML = `Total price: <b>${formattedTotal}</b>`
     // second stage fill out hidden inputs
     const hiddenCoffee = document.querySelector('[data-hidden-coffee]')

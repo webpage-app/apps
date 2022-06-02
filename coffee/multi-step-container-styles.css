@@ -7,6 +7,7 @@
     background-color: transparent;
     display: none;
     transition: 0.1s;
+    padding-top: 5vw;
 }
 @media screen and (max-width: 850px) {
     .container {

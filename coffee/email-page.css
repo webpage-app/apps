@@ -19,10 +19,18 @@
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 12px rgba(0, 0, 0, 0.23);
     padding: 2.5rem 1.5rem;
 }
+.email-card h3, .email-card .input-container button {
+    font-family: var(--normal-text);
+    font-weight: 300;
+    font-size: 1rem;
+}
 .email-card h2, .email-card .input-container button {
     font-family: var(--normal-text);
     font-weight: 400;
     font-size: 1rem;
+}
+.email-card h2 {
+    margin-top: 1.5rem;
 }
 .email-card .input-container {
     display: grid;

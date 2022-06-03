@@ -9,7 +9,7 @@
     grid-gap: 1rem;
     padding: 1rem 1rem;
     justify-content: center;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 .card {
     width: 100%;
@@ -29,6 +29,9 @@
     background-color: var(--light-color);
     border-radius: 1rem;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 12px rgba(0, 0, 0, 0.23);
+}
+.card[disabled=true] {
+    cursor: not-allowed;
 }
 
 .card .image-container {
@@ -50,7 +53,7 @@
     transition: 0.1s ease;
 }
 
-.card:hover .image-container img {
+.card.available:hover .image-container img {
     width: 120%;
 }
 
@@ -87,7 +90,11 @@
     transition: 0.1s ease;
 }
 
-.card:hover .text-container h2,
-.card:hover .text-container p {
+.card.available:hover .text-container h2,
+.card.available:hover .text-container p {
     color: var(--primary-one);
+}
+
+.card[disabled=true] .text-container, .card[disabled=true] .image-container {
+    opacity: 0.4;
 }

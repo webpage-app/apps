@@ -9,7 +9,7 @@
     grid-gap: 1rem;
     padding: 1rem 1rem;
     justify-content: center;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 .email-card {
     width: 100%;

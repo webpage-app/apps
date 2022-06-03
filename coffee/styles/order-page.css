@@ -142,6 +142,13 @@
     -ms-user-select: none;
     user-select: none;
 }
+.order .input.unavailable {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.order .input.unavailable p, .order .input.unavailable p span {
+    text-decoration: line-through;
+}
 
 .order .input input {
     position: absolute;

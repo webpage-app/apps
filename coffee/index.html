@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosshall Coffee</title>
+    <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://unpkg.com/sheetrock@1.2.0/dist/sheetrock.min.js"></script>
+    <script src="./js-components/fetch-google.js" defer></script>
     <script src="./js-components/order.js" defer></script>
     <script src="./js-components/page-nav.js" defer></script>
     <link rel="stylesheet" href="./styles/base-styles.css">
@@ -19,14 +22,14 @@
     <iframe name="redirect-prevention" id="redirect-prevention" style="display: none;"></iframe> <!-- Prevents form redirecting -->
     <form data-multi-step class="multi-step-container" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd__l7kcBwVJGkEEWXvRwgIirTSPb_shrC9mLVgoVf9qOtCCw/formResponse" method="post" target="redirect-prevention">
       
-        <div class="container" data-step>
+        <div class="container active" data-step>
             <h2 class="explainer-text-no-interactivity">Choose a coffee</h2>
             <div class="card-container" data-coffees-container>
 
 
             </div>
         </div>
-        <div class="container active" data-step>
+        <div class="container" data-step>
           <button type="button" class="explainer-text" data-previous>&#x2190; Choose a different coffee</button>
           <main class="order-page-grid">
             <section class="order-page order order-description">
